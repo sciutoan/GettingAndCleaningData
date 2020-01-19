@@ -1,0 +1,57 @@
+---
+title: "CodeBook"
+author: "Anthony"
+date: "1/19/2020"
+output: html_document
+---
+
+
+The run_analysis.R script does the following as per course instructions: 
+  #1. Merges the training and the test sets to create one data set.
+  #2. Extracts only the measurements on the mean and standard deviation for each measurement.
+  #3. Uses descriptive activity names to name the activities in the data set
+  #4. Appropriately labels the data set with descriptive variable names.
+  #5. From the data set in step 4, creates a second, independent tidy data set with the average of each    variable for each activity and each subject.
+
+
+#1. Merges the training and the test sets to create one data set.
+
+  #Read Labels and Features
+    activity_labels: List of activities performed; taken from course dataset
+    features:Come from the accelerometer and gyroscope raw signals; taken from course dataset
+    
+  #Read test data
+    subject_test: Contains test data of 9/30 volunteer test subjects; taken from course dataset
+    X_test: Contains recorded features test data; taken from course dataset
+    y_test: Contains test data of activities’ code labels; taken from course dataset
+    
+  #Read train data
+    subject_train: Contains train data of volunteer subjects; taken from course dataset
+    X_train: Contains recorded features train data; taken from course dataset
+    y_train: Contains train data of activities’code labels; taken from course dataset
+
+  #Merge data
+    xdata: Created by rbind-ing X_train and X_test
+    ydata: Created by rbind-ing y_train and y_test
+    subjectdata: Created by rbind-ing subject_train and subject_test
+    mergeddata: Created by cbind-ing xdata, ydata and subjectdata
+
+
+#2. Extracts only the measurements on the mean and standard deviation for each measurement.
+
+  Cleandata: Created by subsetting mergeddata and the measurements on the mean and standard deviation
+
+
+#3. Uses descriptive activity names to name the activities in the data set
+
+  Replaces the column names using the correct activity names
+
+
+#4. Appropriately labels the data set with descriptive variable names.
+  
+  Replaces the column names using the correct activity names
+
+
+#5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+  averagedata: displays the mean for each variable for each activity after grouping by subject and activity
